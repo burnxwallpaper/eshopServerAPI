@@ -19,18 +19,19 @@ const Mockdata = require('../compoonent/Mockdata')
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use((req, res, next) => {
     res.set({
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "*",
+        "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
         "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Credentials": "true"
         //"Content-Type": "text/html"
     })
     next()
 })
 
-app.use(cors())
+
 
 
 app.use('/api', productRouter);

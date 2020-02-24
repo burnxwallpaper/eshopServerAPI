@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 function routes(Account) {
     const accountRouter = express.Router();
 
-    accountRouter.use(('/'), (req, res, next) => {
+    accountRouter.use(('/account'), (req, res, next) => {
         let token = req.get("token")
         if (req.method === "POST") { return next(); }
         Account.findOne({ token: token }, (err, account) => {
@@ -71,7 +71,7 @@ function routes(Account) {
                         user.token = token
                         user.save();
 
-                        res.cookie("token", { token: token }, { maxAge: 600000, httpOnly: false });
+                        //res.cookie("token", { token: token }, { maxAge: 600000, httpOnly: false });
                         res.json({
                             success: true,
                             username: user.username,
