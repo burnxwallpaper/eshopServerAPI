@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
 
-/*app.use((req, res, next) => {
+app.use((req, res, next) => {
     res.set({
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "*",
@@ -28,7 +28,7 @@ app.use(bodyParser.json());
         //"Content-Type": "text/html"
     })
     next()
-})*/
+})
 
 app.use(cors())
 
