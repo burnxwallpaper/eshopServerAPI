@@ -45,14 +45,6 @@ function routes(Account) {
             });
 
 
-            /*const query = {}
-            Account.find(query, (err, products) => {
-                if (err) {
-                    return res.send(err);
-                }
-                console.log("get successed")
-                return res.json(products);
-            });*/
         })
         .post((req, res) => {
             Account.findOne({
@@ -66,12 +58,10 @@ function routes(Account) {
                     if (user.password != req.body.password) {
                         res.json({ success: false, message: 'Authenticate failed. Wrong password' })
                     } else {
-                        let token = jwt.sign(JSON.parse(JSON.stringify(user.password + user.username)), "secret")
+                        let token = jwt.sign(JSON.parse(JSON.stringify(user.password + user.username + Math.random())), "secret")
 
                         user.token = token
                         user.save();
-
-                        //res.cookie("token", { token: token }, { maxAge: 600000, httpOnly: false });
                         res.json({
                             success: true,
                             username: user.username,
