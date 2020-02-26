@@ -66,7 +66,7 @@ function routes(Account) {
                     if (user.password != req.body.password) {
                         res.json({ success: false, message: 'Authenticate failed. Wrong password' })
                     } else {
-                        let token = jwt.sign(JSON.parse(JSON.stringify(user)), "secret")
+                        let token = jwt.sign(JSON.parse(JSON.stringify(user.password + user.username)), "secret")
 
                         user.token = token
                         user.save();
