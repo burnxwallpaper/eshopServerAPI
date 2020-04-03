@@ -10,7 +10,6 @@ const orderModel = new Schema(
         orderId: { type: String },
         transport: { type: String },
         destination: { type: String },
-
     }
 )
 

@@ -13,7 +13,7 @@ const Account = require('./accountModel');
 const Order = require('./orderModel');
 const productRouter = require('./recordRouter')(Product);
 const accountRouter = require('./accountRouter')(Account);
-const orderRouter = require('./orderRouter')(Order, Product);
+const orderRouter = require('./orderRouter')(Order, Product, Account);
 const Mockdata = require('../compoonent/Mockdata')
 
 app.use(bodyParser.urlencoded({ extended: true }));
